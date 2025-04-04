@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess.com User Stats</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="chess-logo.png">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="https://images.chesscomfiles.com/uploads/v1/user/33.862d5ff1.50x50o.3eaac68dde76@2x.png" alt="Chess Logo" class="chess-logo">
+            <h1>Chess.com<br><span>Stats Finder</span></h1>
+          </div>
+
+        <form id="search-form">
+            <div class="input-container">
+                <input type="text" id="username" name="username" placeholder="username here" required>
+                <button type="submit">Search</button>
+            </div>
+        </form>
+
+        <div id="user-details" class="result-box"></div>
+        <div id="playtime-message" class="result-box"></div>
+
+        <div class="table-container">
+            <table class="playtime-table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Playtime</th>
+                    </tr>
+                </thead>
+                <tbody id="playtime-table-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("search-form").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById("username").value.trim();
+            document.getElementById("user-details").innerHTML = "🔍 Fetching details...";
+            document.getElementById("playtime-message").innerHTML = "";
+
+            try {
+                const userResponse = await fetch(`/fetch/${username}`);
+                const userData = await userResponse.text();
+
+                document.getElementById("user-details").innerHTML = userData.replace(/\n/g, "<br>"); // Preserve new lines
+
+                document.getElementById("playtime-message").innerHTML = "⌛ Calculating the playtime... Please wait.";
+
+                const playtimeResponse = await fetch(`/fetch/playtime/${username}`);
+                const playtimeData = await playtimeResponse.json();
+
+                let playtimeHTML = `🎯 Total Playtime: ${playtimeData.totalTimePlayed}<br><br>📅 Monthly Playtime Breakdown 👇:<br>`;
+                document.getElementById("playtime-message").innerHTML = playtimeHTML;
+
+                const tableBody = document.getElementById("playtime-table-body");
+                tableBody.innerHTML = ""; // Clear previous data
+
+                for (const [month, duration] of Object.entries(playtimeData.monthlyBreakdown)) {
+                    let row = `<tr><td>${month}</td><td>${duration}</td></tr>`;
+                    tableBody.innerHTML += row;
+                }
+
+            } catch (error) {
+                document.getElementById("user-details").innerHTML = "❌ Error fetching user details.";
+                document.getElementById("playtime-message").innerHTML = "";
+                console.error("Error:", error);
+            }
+        });
+    </script>
+
+</body>
+</html>
