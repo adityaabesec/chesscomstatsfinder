@@ -7,7 +7,6 @@ A simple web app that fetches and displays player statistics from [Chess.com](ht
 - Fetch real-time stats of any Chess.com user
 - Clean and minimal web interface
 - Powered by Node.js (Express) backend
-- Utilizes Python for some data processing (if applicable)
 - Responsive frontend (served from `/public`)
 - The main feature is to fetch the playtime , which isnt in the chesscom api its calculated by fetching the pgns and then by adding time of all the games.
 - It has also monthly breakdown of the playtime .
