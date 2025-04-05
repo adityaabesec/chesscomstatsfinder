@@ -25,4 +25,5 @@ A simple web app that fetches and displays player statistics from [Chess.com](ht
 Landing page 
 ![image](https://github.com/user-attachments/assets/0694dc5b-026c-4f72-b36c-909734b15097)
 After searching username 
-![localhost_3000_(Moto G4)](https://github.com/user-attachments/assets/392ea199-b651-405f-8c6d-0b36e830b84d)
+![localhost_3000_](https://github.com/user-attachments/assets/9d2d94de-f397-49a9-aba6-88cdb1b52d4e)
+
