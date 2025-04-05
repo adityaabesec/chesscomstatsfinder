@@ -150,8 +150,12 @@ button:hover {
 }
 
 .playtime-table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(96, 10, 87, 0.105);
     transition: 0.3s;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transform: scale(1.05);
+    
 }
 
 /* Responsive Design */
