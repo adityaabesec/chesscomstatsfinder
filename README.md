@@ -23,3 +23,5 @@ A simple web app that fetches and displays player statistics from [Chess.com](ht
    ```bash
    git clone https://github.com/adityaabesec/chesscomstatsfinder.git
    cd chesscomstatsfinder
+Landing page 
+![image](https://github.com/user-attachments/assets/0694dc5b-026c-4f72-b36c-909734b15097)
