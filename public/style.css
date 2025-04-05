@@ -112,15 +112,15 @@ button:hover {
 .result-box {
     margin-top: 25px;
     padding: 22px;
-    background: rgba(8, 88, 65, 0.168);
+    background: rgba(15, 106, 80, 0.307);
     border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 7px 30px rgba(0, 0, 0, 0.479);
     max-height: 400px;
     overflow-y: auto;
     white-space: pre-wrap;
     font-size: 0.9rem;
     text-align: left;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(21, 98, 66, 0.125);
 }
 
 /* Table Styling */
