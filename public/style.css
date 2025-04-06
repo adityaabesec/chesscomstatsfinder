@@ -135,7 +135,7 @@ button:hover {
     overflow: hidden;
     background: rgba(8, 88, 65, 0.168);
     color: white;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 7px 30px rgba(0, 0, 0, 0.479);
 }
 
 .playtime-table thead {
